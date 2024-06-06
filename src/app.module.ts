@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
+import { SupplierModule } from './supplier/supplier.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { AuthModule } from './auth/auth.module';
   }),
   MongooseModule.forRoot('mongodb://localhost/productos-proveedores'),
   UsersModule,
-  AuthModule,],
+  AuthModule,
+  SupplierModule,],
   controllers: [AppController, UsersController],
   providers: [AppService],
 })
