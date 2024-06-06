@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 import { User } from "src/users/schemas/user.schema";
 
 @Schema()
-export class Provider extends Document {
+export class Providers extends Document {
   @Prop({required: true })
   name: string;
   @Prop({required: true}) // Asegura que el email sea unico
@@ -14,7 +14,7 @@ export class Provider extends Document {
   createBy: User;
 }
 
-export const ProviderSchema = SchemaFactory.createForClass(Provider);
+export const ProvidersSchema = SchemaFactory.createForClass(Providers);
 
 // Este UserSchema puede ser utilziado para definir un modelo de Mongoose
 // que nos permita iteractuar con la base de datos 
