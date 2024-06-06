@@ -17,7 +17,7 @@ import { SupplierModule } from './supplier/supplier.module';
   UsersModule,
   AuthModule,
   SupplierModule,],
-  controllers: [AppController, UsersController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

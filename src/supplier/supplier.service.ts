@@ -1,26 +1,39 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
 import { UpdateSupplierDto } from './dto/update-supplier.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Supplier } from './schemas/supplier.schema';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class SupplierService {
+
+  constructor(@InjectModel(Supplier.name) private readonly supplierModel: Model<Supplier>) {}
+
+
   create(createSupplierDto: CreateSupplierDto) {
-    return 'This action adds a new supplier';
+    const createSupplier = new this.supplierModel(createSupplierDto);
+    return createSupplier.save()
   }
 
-  findAll() {
-    return `This action returns all supplier`;
+  async findAll() {
+    const suppliers = await this.supplierModel.find().exec();
+    return suppliers;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} supplier`;
+  async findOne(id: number) {
+    const supplier =  await this.supplierModel.findById(id).exec();
+    return supplier ? supplier.toObject(): null;
   }
 
-  update(id: number, updateSupplierDto: UpdateSupplierDto) {
-    return `This action updates a #${id} supplier`;
+  async update(id: number, updateSupplierDto: UpdateSupplierDto) {
+    const updatedSupplier = await this.supplierModel.findByIdAndUpdate(id, 
+      updateSupplierDto
+    );
+    return updatedSupplier ? updatedSupplier.toObject() : null;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} supplier`;
+  async remove(id: number) {
+    await this.supplierModel.findByIdAndDelete(id).exec();
   }
 }

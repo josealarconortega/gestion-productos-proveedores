@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { User } from "src/users/schemas/user.schema";
 
 @Schema()
 export class Supplier extends Document {
@@ -7,6 +8,10 @@ export class Supplier extends Document {
   name: string;
   @Prop({required: true}) // Asegura que el email sea unico
   type: string;
+  @Prop({default: Date.now })
+  createAt: Date;
+  @Prop({type: String, ref: 'User', required: true})
+  createBy: User;
 }
 
 export const SupplierSchema = SchemaFactory.createForClass(Supplier);
