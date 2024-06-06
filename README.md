@@ -28,6 +28,10 @@
 
 ## Installation
 
+Se debe crear el archivo .env de la siguiente manera
+
+JWT_SECRET=secreto-ultra
+
 ```bash
 $ npm install
 ```
@@ -57,6 +61,8 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+
 
 ## Support
 
