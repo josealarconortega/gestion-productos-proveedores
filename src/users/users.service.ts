@@ -17,7 +17,7 @@ export class UsersService {
     const existingUser = await this.userModel.findOne({email: createUserDto.email}).exec();
 
     if(existingUser) {
-     throw new EmailAlreadyExistsException();// lanzar un error si el email ya está en uso
+     throw new EmailAlreadyExistsException();
     }
 
     const { password, ...userData } = createUserDto;
@@ -27,7 +27,6 @@ export class UsersService {
   }
 
   async findAll():Promise<Omit<User, 'password'>[]> {
-    //* Busca todos los usuarios en la base de datos y excluye el campo password de los resultados
     const users = await this.userModel.find().select('-password').exec();
     return users;
   }
