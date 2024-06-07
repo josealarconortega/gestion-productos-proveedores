@@ -3,7 +3,7 @@ import {
   ExecutionContext,
   ForbiddenException,
 } from '@nestjs/common';
-import { JWTPayload } from './interfaces/jwt.payload';
+import { JWTPayload } from '../../auth/interfaces/jwt.payload';
 
 export const Auth = createParamDecorator(
   (data: unknown, ctx: ExecutionContext): Partial<JWTPayload> => {

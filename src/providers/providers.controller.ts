@@ -3,7 +3,7 @@ import { ProvidersService } from './providers.service';
 import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
-import { Auth } from 'src/auth/auth.decorator';
+import { Auth } from 'src/common/decorators/auth.decorator';
 import { ProviderInterceptors } from '../common/interceptors/providers.interceptor';
 
 @UseGuards(JwtAuthGuard)
