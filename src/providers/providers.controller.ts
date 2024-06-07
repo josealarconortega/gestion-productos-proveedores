@@ -4,7 +4,7 @@ import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { Auth } from 'src/auth/auth.decorator';
-import { CustomInterceptors } from './interceptor/providers.interceptor';
+import { CustomInterceptors } from '../common/interceptors/providers.interceptor';
 
 @UseGuards(JwtAuthGuard)
 @Controller('providers')

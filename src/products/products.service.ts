@@ -25,12 +25,12 @@ export class ProductsService {
     return producs;
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const providers =  await this.productModel.findById(id).exec();
     return providers ? providers.toObject(): null;
   }
 
-  async update(id: number, updateProductDto: UpdateProductDto) {
+  async update(id: string, updateProductDto: UpdateProductDto) {
     if (updateProductDto.type) {
       if(!Object.values(EtypeProducts).includes(updateProductDto.type as EtypeProducts)) { //PRINCIO, SOLID, 
         throw new ProductTypeNotFound();

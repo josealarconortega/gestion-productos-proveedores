@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import { Observable, throwError } from 'rxjs';
-import { ProvidersService } from '../providers.service';
+import { ProvidersService } from '../../providers/providers.service';
 import { ProviderAlreadyExistsException } from 'src/common/exceptions/provider-already-exists';
 @Injectable()
 export class CustomInterceptors implements NestInterceptor {
