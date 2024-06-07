@@ -1,5 +1,6 @@
 export enum EtypeProducts {
     electronico  = "electronico",
     ropa   = "ropa",
-    alimento = "alimento"
+    alimento = "alimento",
+    ingenieria = "ingenieria"
 }

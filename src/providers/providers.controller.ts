@@ -4,14 +4,14 @@ import { CreateProviderDto } from './dto/create-provider.dto';
 import { UpdateProviderDto } from './dto/update-provider.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { Auth } from 'src/auth/auth.decorator';
-import { CustomInterceptors } from '../common/interceptors/providers.interceptor';
+import { ProviderInterceptors } from '../common/interceptors/providers.interceptor';
 
 @UseGuards(JwtAuthGuard)
 @Controller('providers')
 export class ProvidersController {
   constructor(private readonly providersService: ProvidersService) {}
   
-  @UseInterceptors(CustomInterceptors)
+  @UseInterceptors(ProviderInterceptors)
   @Post()
   create(@Body() createProvidersDto: CreateProviderDto, @Auth() { userId }) {
     return this.providersService.create(createProvidersDto, userId);

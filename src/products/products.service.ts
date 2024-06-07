@@ -26,8 +26,13 @@ export class ProductsService {
   }
 
   async findOne(id: string) {
-    const providers =  await this.productModel.findById(id).exec();
-    return providers ? providers.toObject(): null;
+    const products =  await this.productModel.findById(id).exec();
+    return products ? products.toObject(): null;
+  }
+
+  async findByName(name: string) {
+    const products =  await this.productModel.findOne({'name': {'$regex': `^${name}$`, $options: 'i'}}).exec();
+    return products ? products.toObject(): null;
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
@@ -36,10 +41,10 @@ export class ProductsService {
         throw new ProductTypeNotFound();
       }
     }
-    const updatedProviders = await this.productModel.findByIdAndUpdate(id, 
+    const updatedProducts = await this.productModel.findByIdAndUpdate(id, 
       updateProductDto
     );
-    return updatedProviders ? updatedProviders.toObject() : null;
+    return updatedProducts ? updatedProducts.toObject() : null;
   }
 
   async remove(id: string) {

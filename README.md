@@ -31,6 +31,7 @@
 Se debe crear el archivo .env de la siguiente manera
 
 JWT_SECRET=secreto-ultra
+MONGODB_URI=mongodb://localhost/productos-proveedores
 
 ```bash
 $ npm install
