@@ -1,19 +1,21 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { ProvidersService } from './providers.service';
-import { CreateProvidersDto } from './dto/create-providers.dto';
-import { UpdateProvidersDto } from './dto/update-providers.dto';
+import { CreateProvidersDto } from './dto/create-provider.dto';
+import { UpdateProvidersDto } from './dto/update-provider.dto';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { Auth } from 'src/auth/auth.decorator';
 
+@UseGuards(JwtAuthGuard)
 @Controller('providers')
 export class ProvidersController {
   constructor(private readonly providersService: ProvidersService) {}
-
+  
+  @UseGuards(JwtAuthGuard)
   @Post()
-  create(@Body() createProvidersDto: CreateProvidersDto) {
-    return this.providersService.create(createProvidersDto);
+  create(@Body() createProvidersDto: CreateProvidersDto, @Auth() { userId }) {
+    return this.providersService.create(createProvidersDto, userId);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     return this.providersService.findAll();

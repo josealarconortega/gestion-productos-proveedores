@@ -7,7 +7,6 @@ export class CreateProvidersDto {
 
   @IsString()
   @IsNotEmpty()
-  @Matches(/mayorista|minorista/i)
   readonly type: string;
 
 }

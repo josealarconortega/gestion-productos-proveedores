@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt'; // Nos proporciona la funcionalidad de generar y verificar los tokes "JWT"
 import * as bcrypt from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
+import { User } from '../users/schemas/user.schema';
 
 @Injectable()
 export class AuthService {
@@ -22,8 +23,8 @@ export class AuthService {
   }
 
   // Principio de Responsabilidad única (SRP), Este método se va encargar únicamente de generar el JWT
-  async login(user: any) {
-    const payload = { username: user.username, sub: user._id };
+  async login(user: User) {
+    const payload  = { username: user.username, sub: user._id as string };
     return {
       access_token: this.jwtService.sign(payload), // Genera un token JWT firmado con el payload
     };
