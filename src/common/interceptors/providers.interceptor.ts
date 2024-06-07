@@ -7,7 +7,7 @@ import { ProviderAlreadyExistsException } from 'src/common/exceptions/provider-a
 export class ProviderInterceptors implements NestInterceptor {
     constructor(private providersService: ProvidersService) {}
 
-    async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
+    async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<CallHandler>> {
         const provider = await this.providersService.findByName(context.getArgs()[0].body.name);
         if (provider) {
             return throwError(() => new ProviderAlreadyExistsException);

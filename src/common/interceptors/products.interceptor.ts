@@ -7,7 +7,7 @@ import { ProductAlreadyExistsException } from 'src/common/exceptions/products-al
 export class ProductInterceptors implements NestInterceptor {
     constructor(private productsService: ProductsService) {}
 
-    async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
+    async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<CallHandler>> {
         const provider = await this.productsService.findByName(context.getArgs()[0].body.name);
         if (provider) {
             return throwError(() => new ProductAlreadyExistsException);
