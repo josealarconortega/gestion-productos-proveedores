@@ -4,7 +4,7 @@ import { UpdateProviderDto } from './dto/update-provider.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Provider } from './schemas/provider.schema';
 import { Model } from 'mongoose';
-import { ProviderTypeNotFound } from 'src/common/exceptions/provider-not-found';
+import { ProviderTypeNotFound } from 'src/common/exceptions/provider-type-not-found';
 import { EtypeProvider } from './type.providers.enum'
 @Injectable()
 export class ProvidersService {
