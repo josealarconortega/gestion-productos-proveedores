@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ProvidersService } from './providers.service';
 import { ProvidersController } from './providers.controller';
-
 import { MongooseModule } from '@nestjs/mongoose';
-import { Providers, ProvidersSchema } from './schemas/providers.schema';
+import { Provider, ProviderSchema } from './schemas/provider.schema';
+import { CustomInterceptors } from 'src/providers/interceptor/providers.interceptor';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{name: Providers.name, schema: ProvidersSchema}]) // Configura MongooseModule para incluir el Schema de usuario
+    MongooseModule.forFeature([{name: Provider.name, schema: ProviderSchema}])
   ],
   controllers: [ProvidersController],
-  providers: [ProvidersService],
+  providers: [ProvidersService, CustomInterceptors]
 })
 export class ProvidersModule {}

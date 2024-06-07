@@ -1,5 +1,6 @@
 import { IsString, IsNotEmpty, Matches } from 'class-validator';
-export class CreateProvidersDto {
+
+export class CreateProviderDto {
 
   @IsString()
   @IsNotEmpty()

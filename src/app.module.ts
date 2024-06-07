@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { ProvidersModule } from './providers/providers.module';
 import { ProductsModule } from './products/products.module';
+import { CustomInterceptors } from 'src/providers/interceptor/providers.interceptor';
 
 @Module({
   imports: [
