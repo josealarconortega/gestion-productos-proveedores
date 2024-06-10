@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "20bff959-e547-4491-8cfd-b7f1a8f19e4d",
+		"name": "Curso nestjs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14026947"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jose.alarcon@kibernum.com\",\n    \"password\": \"qwerty123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creacion usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jose\",\n    \"email\": \"jose.alarcon@kibernum.com\",\n    \"password\": \"qwerty123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3Nzc5NjEsImV4cCI6MTcxNzc4MTU2MX0.rC06XlMHjqPMdSrMut0Jc3DsHqiBQcvhqC9qm1TXdnI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"jose\",\n    \"email\": \"jose.alarcon@kibernum.com\",\n    \"password\": \"qwerty123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear proveedor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"WALMART\",\n    \"type\": \"mayorista\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar proveedor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar proveedor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/providers/66634410716da294b3fa819e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"providers",
+						"66634410716da294b3fa819e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Outsorsing2\",\n\"type\": \"ingenieria\",\n\"providerId\": \"66632993ffe74c473a52498a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/666347e4bbdc82fd157a82f1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"666347e4bbdc82fd157a82f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impvc2UiLCJzdWIiOiI2NjYzMThkMDE0ZmNjZGQyYmE0YWQ3ZjgiLCJpYXQiOjE3MTc3ODE3NjYsImV4cCI6MTcxNzc4NTM2Nn0.Du9VCsPiQSDXNwpCgucgReuZ5fAzAxVh86mouSuvnZg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
